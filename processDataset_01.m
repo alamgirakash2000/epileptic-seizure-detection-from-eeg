@@ -44,6 +44,23 @@ label = 5*ones(2300,1);
 Z_merged =[Z_merged label];
 
 %% Merging all the merged files into one file
+%Merging all the files
 mergedAllFile = [S_merged; F_merged; N_merged; O_merged; Z_merged];
-mkdir('mergedFiles')
-csvwrite('mergedFiles/MergedAllFiles.csv', mergedAllFile);
+
+% Generating column names
+cols = ["X1","X2"];
+for i = 3:178
+    c = append("X",string(i));
+    cols(i) = c;
+end
+cols(179) = "y";
+
+MT =table(mergedAllFile);                          % Generating table with values
+writetable(MT,'mergedFiles/mergedTable.csv');     
+MT = readtable('mergedFiles/mergedTable.csv');     % Read the created table to make changes
+MT.Properties.VariableNames = cols;                % Change the column names
+writetable(MT,'mergedFiles/mergedTable.csv');      % Overwrite the file with correct column names
+
+data = readtable('mergedFiles/mergedTable.csv');   % read the table to use this
+
+
