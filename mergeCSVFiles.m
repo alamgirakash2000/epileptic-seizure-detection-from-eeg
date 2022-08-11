@@ -14,7 +14,7 @@ for i = 2:9
 end
 
 % Process TXT file from 010 to 099
-for j = 10:99
+for j = 10:94
     fileNumber =j;
     file = append(dir,fileName(1:2),string(fileNumber),'.csv');
     merged = [merged; oneTo178Columns(file)];

@@ -6,7 +6,8 @@ dir = 'dataset/Sprocessed/';
 fileName ='S00';
 S_merged = mergeCSVFiles(dir,fileName);
 % Adding label on 179th column
-label = ones(2300,1);
+size1 = size(S_merged);
+label = ones(size1(1),1);
 S_merged =[S_merged label];
 
 %% Merged Fprocessed files
@@ -14,7 +15,7 @@ dir = 'dataset/Fprocessed/';
 fileName ='F00';
 F_merged = mergeCSVFiles(dir,fileName);
 % Adding label on 179th column
-label = 2*ones(2300,1);
+label = 2*ones(size1(1),1);
 F_merged =[F_merged label];
 
 %% Merged Nprocessed files
@@ -22,7 +23,7 @@ dir = 'dataset/Nprocessed/';
 fileName ='N00';
 N_merged = mergeCSVFiles(dir,fileName);
 % Adding label on 179th column
-label = 3*ones(2300,1);
+label = 3*ones(size1(1),1);
 N_merged =[N_merged label];
 %csvwrite('mergedFiles/N_merged.csv', N_merged);
 
@@ -31,7 +32,7 @@ dir = 'dataset/Oprocessed/';
 fileName ='O00';
 O_merged = mergeCSVFiles(dir,fileName);
 % Adding label on 179th column
-label = 4*ones(2300,1);
+label = 4*ones(size1(1),1);
 O_merged =[O_merged label];
 
 
@@ -40,7 +41,7 @@ dir = 'dataset/Zprocessed/';
 fileName ='Z00';
 Z_merged = mergeCSVFiles(dir,fileName);
 % Adding label on 179th column
-label = 5*ones(2300,1);
+label = 5*ones(size1(1),1);
 Z_merged =[Z_merged label];
 
 %% Merging all the merged files into one file
