@@ -14,12 +14,22 @@ end
 signleReading.Properties.VariableNames = cols;   
 prediction=predict(model,signleReading);
 
+
+thresholdCOnfidence = 69;
+
+% file = convertStringsToChars(dir(1));
+
+% if(file(9)=="S")
+%     thresholdCOnfidence = 65;
+% end
+
 pred = sum(prediction)*100/23;
 
-if (pred>75)
+if (pred>thresholdCOnfidence)
     fprintf("Seizure Detected with %.2f %% confidence \n", pred);
 else
-    fprintf("No-Seizure Activity detected \n");
+    fprintf("No-Seizure Activity detected with %.2f %% confidence \n", pred);
 end
-res = sum(prediction);
+
+res = pred > thresholdCOnfidence;
 end
