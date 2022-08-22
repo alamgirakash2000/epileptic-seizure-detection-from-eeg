@@ -25,11 +25,11 @@ thresholdCOnfidence = 69;
 
 pred = sum(prediction)*100/23;
 
-if (pred>thresholdCOnfidence)
-    fprintf("Seizure Detected with %.2f %% confidence \n", pred);
-else
-    fprintf("No-Seizure Activity detected with %.2f %% confidence \n", pred);
-end
+% if (pred>thresholdCOnfidence)
+%     fprintf("Seizure Detected with %.2f %% confidence \n", pred);
+% else
+%     fprintf("No-Seizure Activity detected with %.2f %% confidence \n", pred);
+% end
 
 res = pred > thresholdCOnfidence;
 end
