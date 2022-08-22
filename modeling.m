@@ -28,5 +28,18 @@ ms=(sum(prediction==table2array(dataTest(:,end)))/size(dataTest,1))*100;
 fprintf('Random Forest Accuracy: %.2f %% \n',ms)
 
 %% Test with a full folder
-model = model1;
-testWithAllFiles(model);
+clc; close all;
+model = model2;
+actual_output = [zeros(1,400) ones(1,100)];
+predictions=testWithAllFiles(model);
+
+% Confussion Chart
+cc = confusionchart(actual_output,predictions);
+cc.Title = 'Confussion Matrix For Seizure Detection (500 Samples)';
+cc.RowSummary= 'row-normalized';
+
+% Stats of Measure
+cm = confusionmat(actual_output,predictions);
+statsOfMeasure(cm,1);
+
+

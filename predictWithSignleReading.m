@@ -14,14 +14,7 @@ end
 signleReading.Properties.VariableNames = cols;   
 prediction=predict(model,signleReading);
 
-
-thresholdCOnfidence = 69;
-
-% file = convertStringsToChars(dir(1));
-
-% if(file(9)=="S")
-%     thresholdCOnfidence = 65;
-% end
+thresholdCOnfidence = 68;
 
 pred = sum(prediction)*100/23;
 
