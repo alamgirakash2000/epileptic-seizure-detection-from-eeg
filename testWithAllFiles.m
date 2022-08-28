@@ -39,7 +39,7 @@ for k = ['F','N','O','Z','S']
     sum = sum+pred;
     
     % Print the result
-    fprintf("Seizure Activity on %c detected for %d files \n",k,sum)
+    %fprintf("Seizure Activity on %c detected for %d files \n",k,sum)
     predictions = [predictions preds];
 end
 p = predictions;

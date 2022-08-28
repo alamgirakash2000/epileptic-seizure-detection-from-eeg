@@ -62,6 +62,6 @@ MT = readtable('mergedFiles/mergedTable.csv');     % Read the created table to m
 MT.Properties.VariableNames = cols;                % Change the column names
 writetable(MT,'mergedFiles/mergedTable.csv');      % Overwrite the file with correct column names
 
-data = readtable('mergedFiles/mergedTable.csv')   % read the table to use this
+data = readtable('mergedFiles/mergedTable.csv');   % read the table to use this
 
 
