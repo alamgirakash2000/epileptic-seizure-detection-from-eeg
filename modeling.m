@@ -15,7 +15,7 @@ dataTest = data(idx,:);
 testing = dataTest(1:end, 1:end-1);
 
 %%Modeling
-%% model1 =fitctree(dataTrain,'y','OptimizeHyperparameters','auto');
+%% Decision Tree;
 model1 =fitctree(dataTrain,'y');
 prediction=predict(model1,testing);
 ms=(sum(prediction==table2array(dataTest(:,end)))/size(dataTest,1))*100;
@@ -36,7 +36,7 @@ model = model1;
 actual_output = [zeros(1,400) ones(1,100)];
 predictions=testWithAllFiles(model);
 
-confusionMatrixAndScores(actual_output, predictions,'Overall Confussion Matrix For Decision Tree (500 Samples)')
+confusionMatrixAndScores(actual_output, predictions,'Overall Confussion Matrix For Decision Tree (500 Files)')
 
 %% Final test over all the files by Random Forrest
 %clc; close all;
@@ -44,7 +44,7 @@ model = model2;
 actual_output = [zeros(1,400) ones(1,100)];
 predictions=testWithAllFiles(model);
 
-confusionMatrixAndScores(actual_output, predictions,'Overall Confussion Matrix For Random Forrest (500 Samples)')
+confusionMatrixAndScores(actual_output, predictions,'Overall Confussion Matrix For Random Forrest (500 Files)')
 
 
 %% Final test over unseed data by Decision tree
@@ -53,7 +53,7 @@ model = model1;
 actual_output = [zeros(1,40) ones(1,10)];
 predictions=testWithTestingFiles(model);
 
-confusionMatrixAndScores(actual_output, predictions,'Confussion Matrix of Test files For Decision Tree (50 Samples)')
+confusionMatrixAndScores(actual_output, predictions,'Confussion Matrix of Test files For Decision Tree (50 Files)')
 
 %% Final test over unseen data by Random Forrest
 %clc; close all;
@@ -61,6 +61,6 @@ model = model2;
 actual_output = [zeros(1,40) ones(1,10)];
 predictions=testWithTestingFiles(model);
 
-confusionMatrixAndScores(actual_output, predictions,'Confussion Matrix of Test files For Random Forrest (50 Samples)')
+confusionMatrixAndScores(actual_output, predictions,'Confussion Matrix of Test files For Random Forrest (50 Files)')
 
 
